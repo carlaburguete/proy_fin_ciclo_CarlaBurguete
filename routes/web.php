@@ -41,7 +41,7 @@ Route::get('nuevopaciente', 'App\Http\Controllers\PacienteController@nuevopacien
 Route::resource('listausuarios', App\Http\Controllers\AdministradorController::class);
 Route::get('altausuario', 'App\Http\Controllers\AdministradorController@altausuario');
 
-//VISTAS DE USUARIO ESPECIALISTA
+//FALTAN
 
 Route::get('historial', function () {
     return view('vistaespecialista.historial');
