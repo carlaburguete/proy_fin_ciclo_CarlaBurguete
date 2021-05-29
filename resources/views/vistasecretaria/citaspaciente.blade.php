@@ -34,15 +34,14 @@
     <table class="table table-responsive table-striped">
         <thead class="text-light">
         <tr>
-            <th>Fecha</th>
-            <th>Hora</th>
+            <th>Fecha y hora</th>
             <th>Psicólogo/Psiquiatra</th>
+            <th></th>
         </tr>
         </thead>
         <tbody>
         <tr>
-            <td>17/07/2021</td>
-            <td>16:30-17:30</td>
+            <td>17/07/2021 16:30</td>
             <td>Dr. Cepeda</td>
             <td>
                 <a class="btn btn-outline-danger" href="">

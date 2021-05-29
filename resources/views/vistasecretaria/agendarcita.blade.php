@@ -34,17 +34,19 @@
         <table class="table table-responsive table-striped">
             <thead class="text-light">
         <tr>
-            <th>Fecha</th>
-            <th>Hora</th>
+            <th>Fecha y hora</th>
             <th>Psicólogo/Psiquiatra</th>
+            <th></th>
         </tr>
         </thead>
         <tbody>
         @foreach($citas as $cita)
             <a> <tr>
                     <td>{{$cita->fecha}}</td>
-                    <td>{{$cita->hora}}</td>
                     <td>Dr. Cepeda</td>
+                    <td>
+                        <button type="submit" class="btn btn-outline-success">Reservar</button>
+                    </td>
                 </tr></a>
         @endforeach
         </tbody>
