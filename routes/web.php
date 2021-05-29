@@ -19,7 +19,8 @@ Route::get('home', function () {
 });
 
 //VISTAS HECHAS
-Route::resource('listapacientes', 'App\Http\Controllers\PacienteController');
+Route::resource('pacientes', App\Http\Controllers\PacienteController::class);
+Route::get('listapacientes', 'App\Http\Controllers\PacienteController@index');
 Route::get('listadogeneral', 'App\Http\Controllers\PacienteController@listadoGeneral');
 
 

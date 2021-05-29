@@ -33,6 +33,7 @@
                 <th>Nombre</th>
                 <th>DNI</th>
                 <th>Psicólogo/Psiquiatra</th>
+                <th></th>
             </tr>
             </thead>
             <tbody>
@@ -44,6 +45,9 @@
                     $numEsp = random_int(1, 10);
                     @endphp
                 <td>{{$especialistas[$numEsp]->nombre}}</td>
+                    <td>
+                        <button type="submit" class="btn btn-outline-success">Seleccionar</button>
+                    </td>
                 </tr></a>
             @endforeach
             </tbody>
