@@ -40,7 +40,7 @@
         <tbody>
         @foreach($pacientes as $paciente)
             <a> <tr>
-                    <form action="{{route('listausuarios.modificarCita')}}" method="POST">
+                    <form action="" method="POST">
                         @csrf
                         @method('PATCH')
                     <td>{{$paciente->nom_usuario}}</td>
@@ -49,7 +49,7 @@
                     <td>{{$paciente->apellido2}}</td>
                     <td>Paciente</td>
                         <td>
-                            <button type="submit" class="btn btn-outline-danger">Reservar</button>
+                            <button type="submit" class="btn btn-outline-danger">Eliminar</button>
                         </td>
                     </form></tr></a>
         @endforeach
@@ -61,9 +61,7 @@
                     <td>{{$especialista->apellido2}}</td>
                     <td>Especialista</td>
                     <td>
-                        <a class="btn btn-outline-danger" href="">
-                            <i class="fa fa-trash-restore"></i>
-                        </a>
+                        <button type="submit" class="btn btn-outline-danger">Eliminar</button>
                     </td>
                 </tr></a>
         @endforeach
@@ -75,9 +73,7 @@
                     <td>{{$secretario->apellido2}}</td>
                     <td>Secretario</td>
                     <td>
-                        <a class="btn btn-outline-danger" href="">
-                            <i class="fa fa-trash-restore"></i>
-                        </a>
+                        <button type="submit" class="btn btn-outline-danger">Eliminar</button>
                     </td>
                 </tr></a>
         @endforeach
