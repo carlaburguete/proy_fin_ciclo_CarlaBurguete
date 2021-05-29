@@ -1,6 +1,13 @@
 <html>
 <head>
     <link rel="stylesheet" href="{{asset ('../css/app.css')}}">
+    <script>
+        function cambiarAtributo(){
+            var textarea = document.getElementById('textarea');
+            textarea.removeAttribute('readonly');
+        }
+
+    </script>
     <title>Tratamientos</title>
 </head>
 <body>
@@ -26,19 +33,20 @@
 
 
     <br><br>
-<h2 class="text-info">TRATAMIENTOS PACIENTE: {{$pacientes[0]->nombre}}</h2>
+<h2 class="text-info">TRATAMIENTOS PACIENTE: {{$paciente->nombre}}</h2>
     <br>
 
-<a class="btn btn-outline-info">
-    <i class="fa fa-edit">Editar</i>
-</a><br><br>
-    <textarea cols="130" rows="10">DIAGNÓSTICO - Transtorno de ansiedad generalizada
-    Tratamiento
-    Busopirona - diario
-    Benzodiacepinas - diario</textarea>
+    <a class="btn btn-outline-info" id="botonEditar" onclick="cambiarAtributo()">
+        <i class="fa fa-edit">Editar</i>
+    </a><br><br>
+    <form action="{{route('editarTratamiento')}}" method="POST">
+        @csrf
+    <textarea cols="130" rows="10" name="textareaTratamiento" readonly>{{$paciente->tratamiento}}</textarea>
     <br><br>
     <button type="submit" class="btn btn-outline-primary">GUARDAR</button>
     <br><br>
+        <input type="hidden" name="id" value="{{$paciente->id}}">
+    </form>
 </div>
 <div class="footer">
     <p>Gabinete Privado de Psicología y Psiquiatría. Copyright © 2021. Todos los derechos reservados.</p>
