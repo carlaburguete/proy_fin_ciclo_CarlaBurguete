@@ -46,7 +46,7 @@
                     @endphp
                 <td>{{$especialistas[$numEsp]->nombre}}</td>
                     <td>
-                        <button type="submit" class="btn btn-outline-success">Seleccionar</button>
+                        <a class="btn btn-outline-success" href="{{route('historialPaciente',$paciente->id)}}">Seleccionar</a>
                     </td>
                 </tr></a>
             @endforeach

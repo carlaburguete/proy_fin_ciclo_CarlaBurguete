@@ -45,9 +45,13 @@
             <label for="password">Password*</label>
             <input type="password" class="form-check col-10" name="password" value=""><br>
 
-            <input type="radio" name="rol" value="Rol secretaría">
+            <input type="radio" name="rol" value="Secretario">
             <label for="rol">Rol secretaría</label>
-            <input type="radio" name="rol" value="Rol especialista">
+            <input type="radio" name="rol" value="Especialista">
+            <label for="rol">Rol secretaría</label>
+            <input type="radio" name="rol" value="Paciente">
+            <label for="rol">Rol secretaría</label>
+            <input type="radio" name="rol" value="Administrador">
             <label for="rol">Rol especialista</label>
         </div>
         <button type="submit" class="btn btn-outline-primary">GUARDAR</button>

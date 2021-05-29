@@ -32,10 +32,19 @@ class PacienteController extends Controller
         return view("vistasecretaria.datospersonales",['pacientes'=>$pacientes]);
     }
 
-    public function historialPaciente(){
-        $pacientes = Paciente::All();
-        $citas = Cita::All();
-        return view("vistaespecialista.historial",['pacientes'=>$pacientes]);
+    public function historialPaciente($id){
+        $paciente = Paciente::find($id);
+        return view("vistaespecialista.historial",['paciente'=>$paciente]);
+    }
+
+    public function editarHistorial(Request $request){
+        $datos = $request->All();
+        $paciente = Paciente::find($datos['id']);
+        $paciente->fill([
+            'historial' => $datos['textareaHistorial']
+        ]);
+        $paciente->save();
+        return redirect()->route('historialPaciente', $paciente->id);
     }
 
     public function tratamientosPaciente(){

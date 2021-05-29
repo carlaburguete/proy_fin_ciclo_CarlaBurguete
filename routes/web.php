@@ -26,7 +26,8 @@ Route::get('listadogeneral', 'App\Http\Controllers\PacienteController@listadoGen
 
 //VISTAS HECHAS VISTA_PACIENTE
 Route::resource('citaspersonales', App\Http\Controllers\CitaController::class);
-Route::get('historial', 'App\Http\Controllers\PacienteController@historialPaciente');
+Route::get('historial/{id}', 'App\Http\Controllers\PacienteController@historialPaciente')->name('historialPaciente');
+Route::post('editarHistorial', 'App\Http\Controllers\PacienteController@editarHistorial')->name('editarHistorial');
 Route::get('tratamientos', 'App\Http\Controllers\PacienteController@tratamientosPaciente');
 Route::get('evolucion', 'App\Http\Controllers\PacienteController@evolucionPaciente');
 Route::get('historicopersonal', 'App\Http\Controllers\CitaController@historico')->name('citaspersonales.historico');
