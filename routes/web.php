@@ -28,9 +28,10 @@ Route::get('listadogeneral', 'App\Http\Controllers\PacienteController@listadoGen
 Route::resource('citaspersonales', App\Http\Controllers\CitaController::class);
 Route::get('historial/{id}', 'App\Http\Controllers\PacienteController@historialPaciente')->name('historialPaciente');
 Route::get('tratamientos/{id}', 'App\Http\Controllers\PacienteController@tratamientoPaciente')->name('tratamientoPaciente');
+Route::get('evolucion/{id}', 'App\Http\Controllers\PacienteController@evolucionPaciente')->name('evolucionPaciente');
 Route::post('editarHistorial', 'App\Http\Controllers\PacienteController@editarHistorial')->name('editarHistorial');
 Route::post('editarTratamiento', 'App\Http\Controllers\PacienteController@editarTratamiento')->name('editarTratamiento');
-Route::get('evolucion', 'App\Http\Controllers\PacienteController@evolucionPaciente');
+Route::post('editarEvolucion', 'App\Http\Controllers\PacienteController@editarEvolucion')->name('editarEvolucion');
 Route::get('historicopersonal', 'App\Http\Controllers\CitaController@historico')->name('citaspersonales.historico');
 Route::patch('citaspersonalesmodificar', 'App\Http\Controllers\CitaController@modificarCita')->name('citaspersonales.modificarCita');
 Route::patch('historicopersonalborrar', 'App\Http\Controllers\CitaController@eliminarCita')->name('citaspersonales.eliminarCita');

@@ -57,14 +57,26 @@ class PacienteController extends Controller
         return redirect()->route('tratamientoPaciente', $paciente->id);
     }
 
+    public function editarEvolucion(Request $request){
+
+        $datos = $request->All();
+        $paciente = Paciente::find($datos['id']);
+        $evolucionNueva = $paciente->evolucion."\n".$datos['textareaEvolucion'];
+        $paciente->fill([
+            'evolucion' => $evolucionNueva
+        ]);
+        $paciente->save();
+        return redirect()->route('evolucionPaciente', $paciente->id);
+    }
+
     public function tratamientoPaciente($id){
         $paciente = Paciente::find($id);
         return view("vistaespecialista.tratamientos",['paciente'=>$paciente]);
     }
 
-    public function evolucionPaciente(){
-        $pacientes = Paciente::All();
-        return view("vistaespecialista.evolucion",['pacientes'=>$pacientes]);
+    public function evolucionPaciente($id){
+        $paciente = Paciente::find($id);
+        return view("vistaespecialista.evolucion",['paciente'=>$paciente]);
     }
 
     public function nuevoPaciente(){

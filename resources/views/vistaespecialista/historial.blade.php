@@ -24,9 +24,9 @@
         <nav class="text-info font-weight-light">
             <ul>
                 <li><a href="/listapacientes">Seleccionar otro paciente</a></li>
-                <li><a href="/historial">Historial</a></li>
-                <li><a href="/tratamientos">Tratamientos</a></li>
-                <li><a href="/evolucion">Evolución</a></li>
+                <li><a href="{{route('historialPaciente', $paciente->id)}}">Historial</a></li>
+                <li><a href="{{route('tratamientoPaciente', $paciente->id)}}">Tratamientos</a></li>
+                <li><a href="{{route('evolucionPaciente', $paciente->id)}}">Evolución</a></li>
             </ul>
         </nav>
     </header>

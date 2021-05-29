@@ -1,6 +1,13 @@
 <html>
 <head>
     <link rel="stylesheet" href="{{asset ('../css/app.css')}}">
+    <script>
+        function cambiarAtributo(){
+            var textarea = document.getElementById('textarea');
+            textarea.removeAttribute('readonly');
+        }
+
+    </script>
     <title>Evolución</title>
 </head>
 <body>
@@ -18,26 +25,32 @@
         <nav class="text-info font-weight-light">
             <ul>
                 <li><a href="/listapacientes">Seleccionar otro paciente</a></li>
-                <li><a href="/historial">Historial</a></li>
-                <li><a href="/tratamientos">Tratamientos</a></li>
-                <li><a href="/evolucion">Evolución</a></li>
+                <li><a href="{{route('historialPaciente', $paciente->id)}}">Historial</a></li>
+                <li><a href="{{route('tratamientoPaciente', $paciente->id)}}">Tratamientos</a></li>
+                <li><a href="{{route('evolucionPaciente', $paciente->id)}}">Evolución</a></li>
             </ul>
         </nav>
     </header>
 
     <br><br>
-<h2 class="text-info">EVOLUCIÓN PACIENTE: {{$pacientes[0]->nombre}}</h2>
+<h2 class="text-info">EVOLUCIÓN PACIENTE: {{$paciente->nombre}}</h2>
     <br>
     <h3 class="text-info">AÑADIR EVOLUCIÓN</h3>
-    <textarea cols="130" rows="8"></textarea>
+    <a class="btn btn-outline-info" id="botonEditar" onclick="cambiarAtributo()">
+        <i class="fa fa-edit">Editar</i>
+    </a><br><br>
+    <form action="{{route('editarEvolucion')}}" method="POST">
+        @csrf
+    <textarea cols="130" rows="8" id="textarea" name="textareaEvolucion" readonly></textarea>
     <br><br>
     <button type="submit" class="btn btn-outline-primary">GUARDAR</button>
     <br><br>
+        <input type="hidden" name="id" value="{{$paciente->id}}">
+    </form>
     <hr>
     <br>
     <h3 class="text-info">EVOLUCIONES PASADAS</h3>
-    <textarea cols="130" rows="8" readonly>08/01/2021
-        Evolución: Paciente mejora levemente.</textarea>
+    <textarea cols="130" rows="8" id="textareaPasado" name="textareaEvolucionPasado" readonly>{{$paciente->evolucion}}</textarea>
     <br><br>
 </div>
 <div class="footer">
