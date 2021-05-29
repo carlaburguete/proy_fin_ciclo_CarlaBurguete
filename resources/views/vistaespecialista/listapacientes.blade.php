@@ -42,7 +42,7 @@
                 <td>{{$paciente->nombre}}</td>
                 <td>{{$paciente->dni}}</td>
                     @php
-                    $numEsp = random_int(1, 10);
+                    $numEsp = random_int(1, 9);
                     @endphp
                 <td>{{$especialistas[$numEsp]->nombre}}</td>
                     <td>

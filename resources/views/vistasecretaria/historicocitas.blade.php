@@ -51,7 +51,7 @@
             @foreach($citas as $cita)
                 <a> <tr>
                         @php
-                            $numEsp = random_int(1, 15);
+                            $numEsp = random_int(1, 9);
                         @endphp
                         <td>{{$pacientes[$numEsp]->nombre}}</td>
                         <td>{{$cita->fecha}}</td>

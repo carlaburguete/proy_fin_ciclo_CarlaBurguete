@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cita;
 use App\Models\Especialista;
 use App\Models\Paciente;
 use Illuminate\Http\Request;
@@ -33,6 +34,7 @@ class PacienteController extends Controller
 
     public function historialPaciente(){
         $pacientes = Paciente::All();
+        $citas = Cita::All();
         return view("vistaespecialista.historial",['pacientes'=>$pacientes]);
     }
 
