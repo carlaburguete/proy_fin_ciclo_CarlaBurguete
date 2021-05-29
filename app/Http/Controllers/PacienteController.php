@@ -31,6 +31,21 @@ class PacienteController extends Controller
         return view("vistasecretaria.datospersonales",['pacientes'=>$pacientes]);
     }
 
+    public function historialPaciente(){
+        $pacientes = Paciente::All();
+        return view("vistaespecialista.historial",['pacientes'=>$pacientes]);
+    }
+
+    public function tratamientosPaciente(){
+        $pacientes = Paciente::All();
+        return view("vistaespecialista.tratamientos",['pacientes'=>$pacientes]);
+    }
+
+    public function evolucionPaciente(){
+        $pacientes = Paciente::All();
+        return view("vistaespecialista.evolucion",['pacientes'=>$pacientes]);
+    }
+
     public function nuevoPaciente(){
         return view("vistasecretaria.nuevopaciente");
     }

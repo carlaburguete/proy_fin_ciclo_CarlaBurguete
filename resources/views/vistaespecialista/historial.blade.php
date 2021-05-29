@@ -25,7 +25,7 @@
     </header>
 
     <br><br>
-    <h2 class="text-info">HISTORIAL</h2>
+    <h2 class="text-info">HISTORIAL PACIENTE: {{$pacientes[0]->nombre}}</h2>
 <br>
     <a class="btn btn-outline-info">
         <i class="fa fa-edit">Editar</i>

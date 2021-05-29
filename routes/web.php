@@ -25,6 +25,9 @@ Route::get('listadogeneral', 'App\Http\Controllers\PacienteController@listadoGen
 
 //VISTAS HECHAS VISTA_PACIENTE
 Route::resource('citaspersonales', App\Http\Controllers\CitaController::class);
+Route::get('historial', 'App\Http\Controllers\PacienteController@historialPaciente');
+Route::get('tratamientos', 'App\Http\Controllers\PacienteController@tratamientosPaciente');
+Route::get('evolucion', 'App\Http\Controllers\PacienteController@evolucionPaciente');
 Route::get('historicopersonal', 'App\Http\Controllers\CitaController@historico')->name('citaspersonales.historico');
 Route::patch('citaspersonalesmodificar', 'App\Http\Controllers\CitaController@modificarCita')->name('citaspersonales.modificarCita');
 Route::patch('historicopersonalborrar', 'App\Http\Controllers\CitaController@eliminarCita')->name('citaspersonales.eliminarCita');
@@ -40,21 +43,6 @@ Route::get('nuevopaciente', 'App\Http\Controllers\PacienteController@nuevopacien
 //VISTAS HECHAS ADMINISTRADOR
 Route::resource('listausuarios', App\Http\Controllers\AdministradorController::class);
 Route::get('altausuario', 'App\Http\Controllers\AdministradorController@altausuario');
-
-//FALTAN
-
-Route::get('historial', function () {
-    return view('vistaespecialista.historial');
-});
-
-Route::get('evolucion', function () {
-    return view('vistaespecialista.evolucion');
-});
-
-
-Route::get('tratamientos', function () {
-    return view('vistaespecialista.tratamientos');
-});
 
 
 //RUTA A LOGIN

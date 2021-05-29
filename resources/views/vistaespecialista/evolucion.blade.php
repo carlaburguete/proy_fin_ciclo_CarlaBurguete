@@ -26,7 +26,7 @@
     </header>
 
     <br><br>
-<h2 class="text-info">EVOLUCIÓN</h2>
+<h2 class="text-info">EVOLUCIÓN PACIENTE: {{$pacientes[0]->nombre}}</h2>
     <br>
     <h3 class="text-info">AÑADIR EVOLUCIÓN</h3>
     <textarea cols="130" rows="8"></textarea>

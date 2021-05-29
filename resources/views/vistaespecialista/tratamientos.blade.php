@@ -26,7 +26,7 @@
 
 
     <br><br>
-<h2 class="text-info">TRATAMIENTOS</h2>
+<h2 class="text-info">TRATAMIENTOS PACIENTE: {{$pacientes[0]->nombre}}</h2>
     <br>
 
 <a class="btn btn-outline-info">
