@@ -40,15 +40,25 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <td>17/07/2021 16:30</td>
-            <td>Dr. Cepeda</td>
-            <td>
-                <a class="btn btn-outline-danger" href="">
-                    <i class="fa fa-trash-restore"></i>
-                </a>
-            </td>
-        </tr>
+        @foreach($citas as $cita)
+            <tr>
+                <form action="{{route('citaspersonales.eliminarCitaSecretaria')}}" method="POST">
+                    @method("PATCH")
+                    @csrf
+                    <td>{{$cita->fecha}}</td>
+                    <td>{{$cita->nom_usuario_especialista}}</td>
+                    <input type="hidden" name="id" value="{{$cita->id}}">
+
+
+                    <td>
+                        <button type="submit" class="btn btn-outline-danger">
+                            <i class="fa fa-trash-restore"></i> Cancelar cita
+                        </button>
+
+                    </td>
+                </form>
+            </tr>
+        @endforeach
         </tbody>
     </table>
 

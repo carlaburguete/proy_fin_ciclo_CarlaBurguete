@@ -41,13 +41,18 @@
         </thead>
         <tbody>
         @foreach($citas as $cita)
-            <a> <tr>
+            <tr>
+                <form action="{{route('citaspersonales.reservarCita')}}" method="POST">
+                    @csrf
+                    @method('PATCH')
                     <td>{{$cita->fecha}}</td>
-                    <td>Dr. Cepeda</td>
+                    <td>{{$cita->nom_usuario_especialista}}</td>
+                    <input type="hidden" name="id" value="{{$cita->id}}">
                     <td>
                         <button type="submit" class="btn btn-outline-success">Reservar</button>
                     </td>
-                </tr></a>
+                </form>
+            </tr>
         @endforeach
         </tbody>
     </table>

@@ -37,6 +37,7 @@
             <th>Nombre</th>
             <th>DNI</th>
             <th>Psicólogo/Psiquiatra</th>
+            <th></th>
         </tr>
         </thead>
         <tbody>
@@ -48,6 +49,9 @@
                         $numEsp = random_int(1, 9);
                     @endphp
                     <td>{{$especialistas[$numEsp]->nombre}}</td>
+                    <td>
+                        <a class="btn btn-outline-success" href="{{route('historialPaciente',$paciente->id)}}">Seleccionar</a>
+                    </td>
                 </tr></a>
         @endforeach
         </tbody>

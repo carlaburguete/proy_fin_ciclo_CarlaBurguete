@@ -93,6 +93,19 @@ class CitaController extends Controller
         return redirect()->route("citaspersonales.historico");
     }
 
+    public function reservarCita(Request $request)
+    {
+        $entrada = $request->all();
+        $citas = Cita::all();
+        $cita = Cita::find($entrada['id']);
+        $cita->fill([
+            'pendiente' => true
+        ]);
+        $cita->save();
+
+        return redirect()->route("citaspersonales.reservarCita");
+    }
+
     public function eliminarCita(Request $request)
     {
         $entrada = $request->all();
@@ -104,6 +117,19 @@ class CitaController extends Controller
         $cita->save();
 
         return redirect()->route("citaspersonales.historico");
+    }
+
+    public function eliminarCitaSecretaria(Request $request)
+    {
+        $entrada = $request->all();
+        $citas = Cita::all();
+        $cita = Cita::find($entrada['id']);
+        $cita->fill([
+            'pendiente' => false
+        ]);
+        $cita->save();
+
+        return redirect()->route("citaspersonales.eliminarCitaSecretaria");
     }
 
     /**

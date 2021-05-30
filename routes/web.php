@@ -39,7 +39,9 @@ Route::patch('historicopersonalborrar', 'App\Http\Controllers\CitaController@eli
 
 //VISTAS HECHAS SECRETARIA
 Route::get('agendarcita', 'App\Http\Controllers\CitaController@secretarioAgendarCita');
+Route::patch('agendarcitapaciente', 'App\Http\Controllers\CitaController@reservarCita')->name('citaspersonales.reservarCita');
 Route::get('citaspaciente', 'App\Http\Controllers\CitaController@secretarioCitasPaciente');
+Route::patch('citaspacienteborrar', 'App\Http\Controllers\CitaController@eliminarCitaSecretaria')->name('citaspersonales.eliminarCitaSecretaria');
 Route::get('datospersonales', 'App\Http\Controllers\PacienteController@datosPersonales');
 Route::get('historicocitas', 'App\Http\Controllers\CitaController@secretarioHistoricoGeneral');
 Route::get('nuevopaciente', 'App\Http\Controllers\PacienteController@nuevopaciente');
