@@ -12,6 +12,11 @@ class EspecialistaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function eliminarEspecialista(){
+
+    }
+
     public function index()
     {
         //

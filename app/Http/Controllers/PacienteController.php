@@ -14,6 +14,11 @@ class PacienteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function eliminarPaciente(){
+
+    }
+
     public function index()
     {
         $pacientes = Paciente::All();

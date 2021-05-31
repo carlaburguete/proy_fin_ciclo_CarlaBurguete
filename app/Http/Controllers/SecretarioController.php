@@ -12,6 +12,11 @@ class SecretarioController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function eliminarSecretario(){
+
+    }
+
     public function index()
     {
         //

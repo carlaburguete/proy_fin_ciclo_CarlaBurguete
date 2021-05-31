@@ -35,6 +35,7 @@
             <th>Primer apellido</th>
             <th>Segundo apellido</th>
             <th>Tipo usuario</th>
+            <th></th>
         </tr>
         </thead>
         <tbody>
@@ -55,6 +56,9 @@
         @endforeach
         @foreach($especialistas as $especialista)
             <a> <tr>
+                    <form action="" method="POST">
+                        @csrf
+                        @method('PATCH')
                     <td>{{$especialista->nom_usuario}}</td>
                     <td>{{$especialista->nombre}}</td>
                     <td>{{$especialista->apellido1}}</td>
@@ -63,10 +67,13 @@
                     <td>
                         <button type="submit" class="btn btn-outline-danger">Eliminar</button>
                     </td>
-                </tr></a>
+                    </form></tr></a>
         @endforeach
         @foreach($secretarios as $secretario)
             <a> <tr>
+                    <form action="" method="POST">
+                        @csrf
+                        @method('PATCH')
                     <td>{{$secretario->nom_usuario}}</td>
                     <td>{{$secretario->nombre}}</td>
                     <td>{{$secretario->apellido1}}</td>
@@ -75,7 +82,7 @@
                     <td>
                         <button type="submit" class="btn btn-outline-danger">Eliminar</button>
                     </td>
-                </tr></a>
+                    </form></tr></a>
         @endforeach
         </tbody>
     </table>
