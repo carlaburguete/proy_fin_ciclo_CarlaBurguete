@@ -23,12 +23,26 @@ class AdministradorController extends Controller
         return view("vistaadministrador.listausuarios",['pacientes'=>$pacientes, 'especialistas'=>$especialistas, 'secretarios'=>$secretarios]);
     }
 
-    public function altausuario()
+    public function altausuario(){
+        return view("vistaadministrador.altausuario");
+    }
+    public function crearusuario(Request $request)
     {
-        $pacientes = Paciente::All();
-        $especialistas = Especialista::All();
-        $secretarios = Secretario::All();
-        return view("vistaadministrador.altausuario",['pacientes'=>$pacientes, 'especialistas'=>$especialistas, 'secretarios'=>$secretarios]);
+        $entrada = $request->all();
+        if ($entrada['rol'] == 'paciente'){
+            $paciente = new Paciente($request->input());
+            $paciente->save();
+        }
+        if ($entrada['rol'] == 'secretario'){
+            $secretario = new Secretario($request->input());
+            $secretario->save();
+        }
+        if ($entrada['rol'] == 'especialista'){
+            $especialista = new Especialista($request->input());
+            $especialista->save();
+        }
+
+        return redirect()->route("listausuarios");
     }
 
 

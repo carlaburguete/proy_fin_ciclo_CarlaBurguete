@@ -27,8 +27,9 @@
 
     <!-- <h5 class="text-uppercase alert-warning">Mensaje</h5> -->
 
-    <form action="" method="POST">
-
+    <form action="{{route('altausuario')}}" method="POST">
+        @csrf
+        @method('POST')
         <div class="form-group">
             <label for="nombre">Nombre*</label>
             <input type="text" class="form-check col-10" name="nombre" value=""><br>
@@ -45,11 +46,11 @@
             <label for="password">Password*</label>
             <input type="password" class="form-check col-10" name="password" value=""><br>
 
-            <input type="radio" name="rol" value="Secretario">
+            <input type="radio" name="rol" value="secretario">
             <label for="rol">Usuario Secretaría</label>
-            <input type="radio" name="rol" value="Especialista">
+            <input type="radio" name="rol" value="especialista">
             <label for="rol">Usuario Especialista</label>
-            <input type="radio" name="rol" value="Paciente">
+            <input type="radio" name="rol" value="paciente">
             <label for="rol">Usuario Paciente</label>
 
         </div>

@@ -50,7 +50,9 @@ Route::get('nuevopaciente', 'App\Http\Controllers\PacienteController@nuevopacien
 
 //VISTAS HECHAS ADMINISTRADOR
 Route::resource('listausuarios', 'App\Http\Controllers\AdministradorController');
-Route::get('altausuario', 'App\Http\Controllers\AdministradorController@altausuario');
+//NO VA
+//Route::resource('altausuario','App\Http\Controllers\AdministradorController@altausuario')->name('get');
+Route::post('crearusuario', 'App\Http\Controllers\AdministradorController@crearusuario')->name('crearusuario');
 
 
 //RUTA A LOGIN
