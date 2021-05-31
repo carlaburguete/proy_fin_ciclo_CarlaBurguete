@@ -85,6 +85,8 @@ class SecretarioController extends Controller
      */
     public function destroy(Secretario $secretario)
     {
-        //
+        $secretario->delete();
+        $msj = "Secretario eliminado";
+        return $msj;
     }
 }

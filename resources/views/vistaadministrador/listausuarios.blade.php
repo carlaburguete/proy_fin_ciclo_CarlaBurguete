@@ -1,6 +1,50 @@
 <html>
 <head>
     <link rel="stylesheet" href="{{asset ('../css/app.css')}}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.btn-paciente').click(function(e){
+                e.preventDefault();
+                var row = $(this).parents('tr');
+                var id = row.data('id');
+                var form = $('#formularioPaciente');
+                var url = form.attr('action').replace(':USER', id);
+                var data = form.serialize();
+                row.fadeOut();
+
+                $.post(url, data, function (result){
+                    alert(result);
+                });
+            })
+            $('.btn-secretario').click(function(e){
+                e.preventDefault();
+                var row = $(this).parents('tr');
+                var id = row.data('id');
+                var form = $('#formularioSecretario');
+                var url = form.attr('action').replace(':USER', id);
+                var data = form.serialize();
+                row.fadeOut();
+
+                $.post(url, data, function (result){
+                    alert(result);
+                });
+            })
+            $('.btn-especialista').click(function(e){
+                e.preventDefault();
+                var row = $(this).parents('tr');
+                var id = row.data('id');
+                var form = $('#formularioEspecialista');
+                var url = form.attr('action').replace(':USER', id);
+                var data = form.serialize();
+                row.fadeOut();
+
+                $.post(url, data, function (result){
+                    alert(result);
+                });
+            })
+        })
+    </script>
     <title>Usuarios registrados</title>
 </head>
 <body>
@@ -40,49 +84,43 @@
         </thead>
         <tbody>
         @foreach($pacientes as $paciente)
-            <a> <tr>
-                    <form action="{{route('pacientes.destroy', $paciente->id)}}" method="POST">
-                        @csrf
-                        @method('PATCH')
+            <a> <tr data-id="{{$paciente->id}}">
+
                     <td>{{$paciente->nom_usuario}}</td>
                     <td>{{$paciente->nombre}}</td>
                     <td>{{$paciente->apellido1}}</td>
                     <td>{{$paciente->apellido2}}</td>
                     <td>Paciente</td>
                         <td>
-                            <button type="submit" class="btn btn-outline-danger">Eliminar</button>
+                            <button type="button" class="btn btn-outline-danger btn-paciente">Eliminar</button>
                         </td>
-                    </form></tr></a>
+                  </tr></a>
+
         @endforeach
         @foreach($especialistas as $especialista)
-            <a> <tr>
-                    <form action="" method="POST">
-                        @csrf
-                        @method('PATCH')
+            <a> <tr data-id="{{$especialista->id}}">
                     <td>{{$especialista->nom_usuario}}</td>
                     <td>{{$especialista->nombre}}</td>
                     <td>{{$especialista->apellido1}}</td>
                     <td>{{$especialista->apellido2}}</td>
                     <td>Especialista</td>
                     <td>
-                        <button type="submit" class="btn btn-outline-danger">Eliminar</button>
+                        <button type="submit" class="btn btn-outline-danger btn-especialista">Eliminar</button>
                     </td>
-                    </form></tr></a>
+                    </tr></a>
         @endforeach
         @foreach($secretarios as $secretario)
-            <a> <tr>
-                    <form action="" method="POST">
-                        @csrf
-                        @method('PATCH')
+            <a> <tr data-id="{{$secretario->id}}">
+
                     <td>{{$secretario->nom_usuario}}</td>
                     <td>{{$secretario->nombre}}</td>
                     <td>{{$secretario->apellido1}}</td>
                     <td>{{$secretario->apellido2}}</td>
                     <td>Secretario</td>
                     <td>
-                        <button type="submit" class="btn btn-outline-danger">Eliminar</button>
+                        <button type="submit" class="btn btn-outline-danger btn-secretario">Eliminar</button>
                     </td>
-                    </form></tr></a>
+                    </tr></a>
         @endforeach
         </tbody>
     </table>
@@ -94,5 +132,16 @@
     <p>Gabinete Privado de Psicología y Psiquiatría. Copyright © 2021. Todos los derechos reservados.</p>
 </div>
 </body>
-
+<form action="{{route('pacientes.destroy', ':USER')}}" id="formularioPaciente" method="DELETE">
+@csrf
+    @method('DELETE')
+</form>
+<form action="{{route('especialistas.destroy', ':USER')}}" id="formularioEspecialista" method="DELETE">
+    @csrf
+    @method('DELETE')
+</form>
+<form action="{{route('secretarios.destroy', ':USER')}}" id="formularioSecretario" method="DELETE">
+    @csrf
+    @method('DELETE')
+</form>
 </html>

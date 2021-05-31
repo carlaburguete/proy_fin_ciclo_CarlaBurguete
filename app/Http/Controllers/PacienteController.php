@@ -151,10 +151,11 @@ class PacienteController extends Controller
      * @param  \App\Models\Paciente  $paciente
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+
+    public function destroy(Paciente $paciente)
     {
-        $paciente = Paciente::find($id);
         $paciente->delete();
-        return redirect()->route('listausuarios.index');
+        $msj = "Paciente eliminado";
+        return $msj;
     }
 }

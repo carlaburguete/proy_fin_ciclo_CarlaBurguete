@@ -85,6 +85,8 @@ class EspecialistaController extends Controller
      */
     public function destroy(Especialista $especialista)
     {
-        //
+        $especialista->delete();
+        $msj = "Especialista eliminado";
+        return $msj;
     }
 }
