@@ -31,6 +31,7 @@ class AdministradorController extends Controller
         return view("vistaadministrador.altausuario",['pacientes'=>$pacientes, 'especialistas'=>$especialistas, 'secretarios'=>$secretarios]);
     }
 
+
     /**
      * Show the form for creating a new resource.
      *

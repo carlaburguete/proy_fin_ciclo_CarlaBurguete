@@ -35,16 +35,18 @@ class CitaController extends Controller
         return view("vista_paciente.historicopersonal",['pacientes'=>$pacientes, 'citas'=>$citasPendientes]);
     }
 
-    public function secretarioAgendarCita(){
+    public function secretarioCitasPaciente($id){
+        $paciente = Paciente::find($id);
         $citas = Cita::All();
-        $pacientes = Paciente::All();
-        return view("vistasecretaria.agendarcita",['pacientes'=>$pacientes, 'citas'=>$citas]);
-    }
-
-    public function secretarioCitasPaciente(){
-        $citas = Cita::All();
-        $pacientes = Paciente::All();
-        return view("vistasecretaria.citaspaciente",['pacientes'=>$pacientes, 'citas'=>$citas]);
+        $citasPendientes = [];
+        $contador = 0;
+        foreach ($citas as $citaNueva){
+            if($citaNueva->pendiente){
+                $citasPendientes[$contador] = $citaNueva;
+                $contador++;
+            }
+        }
+        return view("vistasecretaria.citaspaciente",['citas'=>$citasPendientes, 'paciente'=>$paciente]);
     }
 
     public function secretarioHistoricoGeneral(){
@@ -80,6 +82,12 @@ class CitaController extends Controller
         return view("vista_paciente.historicopersonal",['citas'=>$citas, 'pacientes'=>$pacientes]);
     }
 
+    public function mostrarPaginaAgenda($id){
+        $paciente = Paciente::find($id);
+        $citas = Cita::all();
+        return view("vistasecretaria.agendarcita", ['citas'=>$citas, 'paciente'=>$paciente]);
+    }
+
     public function modificarCita(Request $request)
     {
         $entrada = $request->all();
@@ -103,7 +111,7 @@ class CitaController extends Controller
         ]);
         $cita->save();
 
-        return redirect()->route("citaspersonales.reservarCita");
+        return redirect()->route("citaspaciente", $entrada['pacienteElegido']);
     }
 
     public function eliminarCita(Request $request)
@@ -129,7 +137,7 @@ class CitaController extends Controller
         ]);
         $cita->save();
 
-        return redirect()->route("citaspersonales.eliminarCitaSecretaria");
+        return redirect()->route("citaspaciente", $entrada['pacienteElegido']);
     }
 
     /**

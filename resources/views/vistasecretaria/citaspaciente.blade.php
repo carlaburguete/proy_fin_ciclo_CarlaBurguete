@@ -25,7 +25,7 @@
     <h2 class="text-info">CITAS DEL PACIENTE</h2>
 
     <br>
-    <p>Paciente: {{$pacientes[0]->nombre}}</p>
+    <p>Paciente: {{$paciente->nombre}} {{$paciente->apellido1}}</p>
     <p>Especialista: Dr. Cepeda</p>
     <p>Categoría: Psicólogo</p>
 
@@ -42,19 +42,17 @@
         <tbody>
         @foreach($citas as $cita)
             <tr>
-                <form action="{{route('citaspersonales.eliminarCitaSecretaria')}}" method="POST">
+                <form action="{{route('eliminarCitaSecretaria')}}" method="POST">
                     @method("PATCH")
                     @csrf
                     <td>{{$cita->fecha}}</td>
                     <td>{{$cita->nom_usuario_especialista}}</td>
                     <input type="hidden" name="id" value="{{$cita->id}}">
-
-
                     <td>
                         <button type="submit" class="btn btn-outline-danger">
                             <i class="fa fa-trash-restore"></i> Cancelar cita
                         </button>
-
+                        <input type="hidden" name="pacienteElegido" value="{{$paciente->id}}">
                     </td>
                 </form>
             </tr>

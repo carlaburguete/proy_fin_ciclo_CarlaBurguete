@@ -24,7 +24,7 @@
         <br><br>
     <h2 class="text-info">AGENDAR CITA</h2>
         <br>
-        <p>Paciente: {{$pacientes[0]->nombre}}</p>
+        <p>Paciente: {{$paciente->nombre}} {{$paciente->apellido1}}</p>
         <p>Especialista: Dr. Cepeda</p>
         <p>Categoría: Psicólogo</p>
 
@@ -42,7 +42,7 @@
         <tbody>
         @foreach($citas as $cita)
             <tr>
-                <form action="{{route('citaspersonales.reservarCita')}}" method="POST">
+                <form action="{{route('reservarCita')}}" method="POST">
                     @csrf
                     @method('PATCH')
                     <td>{{$cita->fecha}}</td>
@@ -50,6 +50,7 @@
                     <input type="hidden" name="id" value="{{$cita->id}}">
                     <td>
                         <button type="submit" class="btn btn-outline-success">Reservar</button>
+                        <input type="hidden" name="pacienteElegido" value="{{$paciente->id}}">
                     </td>
                 </form>
             </tr>

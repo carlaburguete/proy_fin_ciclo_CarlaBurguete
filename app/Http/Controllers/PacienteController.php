@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Cita;
 use App\Models\Especialista;
 use App\Models\Paciente;
+use App\Models\Secretario;
 use Illuminate\Http\Request;
 
 class PacienteController extends Controller
@@ -150,8 +151,10 @@ class PacienteController extends Controller
      * @param  \App\Models\Paciente  $paciente
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Paciente $paciente)
+    public function destroy($id)
     {
-        //
+        $paciente = Paciente::find($id);
+        $paciente->delete();
+        return redirect()->route('listausuarios.index');
     }
 }

@@ -41,7 +41,7 @@
         <tbody>
         @foreach($pacientes as $paciente)
             <a> <tr>
-                    <form action="" method="POST">
+                    <form action="{{route('pacientes.destroy', $paciente->id)}}" method="POST">
                         @csrf
                         @method('PATCH')
                     <td>{{$paciente->nom_usuario}}</td>

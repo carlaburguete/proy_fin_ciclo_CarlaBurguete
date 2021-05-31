@@ -38,16 +38,16 @@ Route::patch('historicopersonalborrar', 'App\Http\Controllers\CitaController@eli
 
 
 //VISTAS HECHAS SECRETARIA
-Route::get('agendarcita', 'App\Http\Controllers\CitaController@secretarioAgendarCita');
-Route::patch('agendarcitapaciente', 'App\Http\Controllers\CitaController@reservarCita')->name('citaspersonales.reservarCita');
-Route::get('citaspaciente', 'App\Http\Controllers\CitaController@secretarioCitasPaciente');
-Route::patch('citaspacienteborrar', 'App\Http\Controllers\CitaController@eliminarCitaSecretaria')->name('citaspersonales.eliminarCitaSecretaria');
+Route::get('agendarcita/{id}', 'App\Http\Controllers\CitaController@mostrarPaginaAgenda') ->name('agendarcita');
+Route::patch('agendarcitapaciente', 'App\Http\Controllers\CitaController@reservarCita')->name('reservarCita');
+Route::get('citaspaciente/{id}', 'App\Http\Controllers\CitaController@secretarioCitasPaciente')->name('citaspaciente');
+Route::patch('citaspacienteborrar', 'App\Http\Controllers\CitaController@eliminarCitaSecretaria')->name('eliminarCitaSecretaria');
 Route::get('datospersonales', 'App\Http\Controllers\PacienteController@datosPersonales');
 Route::get('historicocitas', 'App\Http\Controllers\CitaController@secretarioHistoricoGeneral');
 Route::get('nuevopaciente', 'App\Http\Controllers\PacienteController@nuevopaciente');
 
 //VISTAS HECHAS ADMINISTRADOR
-Route::resource('listausuarios', App\Http\Controllers\AdministradorController::class);
+Route::resource('listausuarios', 'App\Http\Controllers\AdministradorController');
 Route::get('altausuario', 'App\Http\Controllers\AdministradorController@altausuario');
 
 
