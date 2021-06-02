@@ -40,7 +40,7 @@ Route::patch('historicopersonalborrar', 'App\Http\Controllers\CitaController@eli
 
 
 //VISTAS HECHAS SECRETARIA
-Route::get('agendarcita/{id}', 'App\Http\Controllers\CitaController@mostrarPaginaAgenda') ->name('agendarcita');
+Route::get('agendarcita/{id}', 'App\Http\Controllers\CitaController@mostrarPaginaAgenda')->name('agendarcita');
 Route::patch('agendarcitapaciente', 'App\Http\Controllers\CitaController@reservarCita')->name('reservarCita');
 Route::get('citaspaciente/{id}', 'App\Http\Controllers\CitaController@secretarioCitasPaciente')->name('citaspaciente');
 Route::patch('citaspacienteborrar', 'App\Http\Controllers\CitaController@eliminarCitaSecretaria')->name('eliminarCitaSecretaria');
@@ -51,8 +51,8 @@ Route::post('nuevopaciente', 'App\Http\Controllers\PacienteController@nuevopacie
 
 //VISTAS HECHAS ADMINISTRADOR
 Route::resource('listausuarios', 'App\Http\Controllers\AdministradorController');
-//NO VA
-//Route::resource('altausuario','App\Http\Controllers\AdministradorController@altausuario')->name('get');
+
+//Route::post('altausuario','App\Http\Controllers\AdministradorController@altausuario')->name('altausuario');
 //Route::post('crearusuario', 'App\Http\Controllers\AdministradorController@crearusuario')->name('crearusuario');
 
 //RUTA A LOGIN

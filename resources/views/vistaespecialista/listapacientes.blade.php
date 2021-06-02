@@ -20,40 +20,41 @@
     <h2 class="text-info">LISTADO DE PACIENTES</h2>
     <br><br>
     <div class="buscador">
-        <input type="search" placeholder="Escribe el nombre del paciente" name="busquedacodigo" size="40" maxlength="100">
+        <input type="search" placeholder="Escribe el nombre del paciente" name="busquedacodigo" size="40"
+               maxlength="100">
     </div>
 
     <br><br>
 
-    <!-- <h5 class="text-uppercase alert-warning">Mensaje</h5> -->
-
-        <table class="table table-responsive table-striped">
-            <thead class="text-light">
-            <tr>
-                <th>Nombre</th>
-                <th>DNI</th>
-                <th>Psicólogo/Psiquiatra</th>
-                <th></th>
-            </tr>
-            </thead>
-            <tbody>
-            @foreach($pacientes as $paciente)
-            <a> <tr>
-                <td>{{$paciente->nombre}} {{$paciente->apellido1}}</td>
-                <td>{{$paciente->dni}}</td>
+    <table class="table table-responsive table-striped">
+        <thead class="text-light">
+        <tr>
+            <th>Nombre</th>
+            <th>DNI</th>
+            <th>Psicólogo/Psiquiatra</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach($pacientes as $paciente)
+            <a>
+                <tr>
+                    <td>{{$paciente->nombre}} {{$paciente->apellido1}}</td>
+                    <td>{{$paciente->dni}}</td>
                     @php
-                    $numEsp = random_int(1, 9);
+                        $numEsp = random_int(1, 9);
                     @endphp
-                <td>{{$especialistas[$numEsp]->nombre}} {{$especialistas[$numEsp]->apellido1}}</td>
+                    <td>{{$especialistas[$numEsp]->nombre}} {{$especialistas[$numEsp]->apellido1}}</td>
                     <td>
                         <a class="btn btn-outline-success" href="{{route('historialPaciente',$paciente->id)}}">Seleccionar</a>
                     </td>
-                </tr></a>
-            @endforeach
-            </tbody>
-        </table>
+                </tr>
+            </a>
+        @endforeach
+        </tbody>
+    </table>
     <br>
-    </div>
+</div>
 <br>
 
 <div class="footer">

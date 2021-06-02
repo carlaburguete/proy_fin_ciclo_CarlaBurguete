@@ -2,7 +2,7 @@
 <head>
     <link rel="stylesheet" href="{{asset ('../css/app.css')}}">
     <script>
-        function cambiarAtributo(){
+        function cambiarAtributo() {
             var textarea = document.getElementById('textarea');
             textarea.removeAttribute('readonly');
         }
@@ -33,7 +33,7 @@
 
 
     <br><br>
-<h2 class="text-info">TRATAMIENTOS PACIENTE: {{$paciente->nombre}} {{$paciente->apellido1}}</h2>
+    <h2 class="text-info">TRATAMIENTOS PACIENTE: {{$paciente->nombre}} {{$paciente->apellido1}}</h2>
     <br>
 
     <a class="btn btn-outline-info" id="botonEditar" onclick="cambiarAtributo()">
@@ -41,10 +41,11 @@
     </a><br><br>
     <form action="{{route('editarTratamiento')}}" method="POST">
         @csrf
-    <textarea cols="130" rows="10" id="textarea" name="textareaTratamiento" readonly>{{$paciente->tratamiento}}</textarea>
-    <br><br>
-    <button type="submit" class="btn btn-outline-primary">GUARDAR</button>
-    <br><br>
+        <textarea cols="130" rows="10" id="textarea" name="textareaTratamiento"
+                  readonly>{{$paciente->tratamiento}}</textarea>
+        <br><br>
+        <button type="submit" class="btn btn-outline-primary">GUARDAR</button>
+        <br><br>
         <input type="hidden" name="id" value="{{$paciente->id}}">
     </form>
 </div>

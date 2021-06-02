@@ -24,9 +24,6 @@
     <br><br>
     <h2 class="text-info">CREAR USUARIO</h2>
     <br><br>
-
-    <!-- <h5 class="text-uppercase alert-warning">Mensaje</h5> -->
-
     <form action="{{route('altausuario')}}" method="POST">
         @csrf
         @method('POST')

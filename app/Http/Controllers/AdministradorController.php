@@ -35,7 +35,7 @@ class AdministradorController extends Controller
                     redirect()->route('vista_paciente.citaspersonales');
                 }
             } else {
-                redirect()->route('login')->with('status', 'Error en los campos introducidos');
+                redirect()->route('login');
             }
         }
         foreach($secretarios as $secretario){
@@ -44,7 +44,7 @@ class AdministradorController extends Controller
                     redirect()->route('vistasecretaria.listadogeneral');
                 }
             } else {
-                redirect()->route('login')->with('status', 'Error en los campos introducidos');
+                redirect()->route('login');
             }
         }
         foreach($especialistas as $especialista){
@@ -53,7 +53,7 @@ class AdministradorController extends Controller
                     redirect()->route('vistaespecialista.listapacientes');
                 }
             } else {
-                redirect()->route('login')->with('status', 'Error en los campos introducidos');
+                redirect()->route('login');
             }
         }
         foreach($administradores as $administrador){
@@ -62,7 +62,7 @@ class AdministradorController extends Controller
                     redirect()->route('vistaadministrador.listausuarios');
                 }
             } else {
-                redirect()->route('login')->with('status', 'Error en los campos introducidos');
+                redirect()->route('login');
             }
         }
 

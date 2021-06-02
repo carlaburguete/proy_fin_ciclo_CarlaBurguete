@@ -25,11 +25,10 @@
     <h2 class="text-info">LISTADO GENERAL DE PACIENTES</h2>
     <br><br>
     <div class="buscador">
-        <input type="search" placeholder="Escribe el nombre del paciente" name="busquedacodigo" size="40" maxlength="100">
+        <input type="search" placeholder="Escribe el nombre del paciente" name="busquedacodigo" size="40"
+               maxlength="100">
     </div>
     <br><br>
-
-           <!-- <h5 class="text-uppercase alert-warning"></h5> -->
 
     <table class="table table-responsive table-striped">
         <thead class="text-light">
@@ -42,7 +41,8 @@
         </thead>
         <tbody>
         @foreach($pacientes as $paciente)
-            <a> <tr>
+            <a>
+                <tr>
                     <td>{{$paciente->nombre}} {{$paciente->apellido1}}</td>
                     <td>{{$paciente->dni}}</td>
                     @php
@@ -52,7 +52,8 @@
                     <td>
                         <a class="btn btn-outline-success" href="{{route('agendarcita',$paciente->id)}}">Seleccionar</a>
                     </td>
-                </tr></a>
+                </tr>
+            </a>
         @endforeach
         </tbody>
     </table>

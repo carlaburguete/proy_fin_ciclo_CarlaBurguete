@@ -2,7 +2,7 @@
 <head>
     <link rel="stylesheet" href="{{asset ('../css/app.css')}}">
     <script>
-        function cambiarAtributo(){
+        function cambiarAtributo() {
             var textarea = document.getElementById('textarea');
             textarea.removeAttribute('readonly');
         }
@@ -21,7 +21,7 @@
         </div>
 
 
-    <h1 class="text-dark text-left font-weight-bold">Gabinete privado - Especialista</h1>
+        <h1 class="text-dark text-left font-weight-bold">Gabinete privado - Especialista</h1>
         <nav class="text-info font-weight-light">
             <ul>
                 <li><a href="/listapacientes">Seleccionar otro paciente</a></li>
@@ -33,7 +33,7 @@
     </header>
 
     <br><br>
-<h2 class="text-info">EVOLUCIÓN PACIENTE: {{$paciente->nombre}} {{$paciente->apellido1}}</h2>
+    <h2 class="text-info">EVOLUCIÓN PACIENTE: {{$paciente->nombre}} {{$paciente->apellido1}}</h2>
     <br>
     <h3 class="text-info">AÑADIR EVOLUCIÓN</h3>
     <a class="btn btn-outline-info" id="botonEditar" onclick="cambiarAtributo()">
@@ -41,16 +41,17 @@
     </a><br><br>
     <form action="{{route('editarEvolucion')}}" method="POST">
         @csrf
-    <textarea cols="130" rows="8" id="textarea" name="textareaEvolucion" readonly></textarea>
-    <br><br>
-    <button type="submit" class="btn btn-outline-primary">GUARDAR</button>
-    <br><br>
+        <textarea cols="130" rows="8" id="textarea" name="textareaEvolucion" readonly></textarea>
+        <br><br>
+        <button type="submit" class="btn btn-outline-primary">GUARDAR</button>
+        <br><br>
         <input type="hidden" name="id" value="{{$paciente->id}}">
     </form>
     <hr>
     <br>
     <h3 class="text-info">EVOLUCIONES PASADAS</h3>
-    <textarea cols="130" rows="8" id="textareaPasado" name="textareaEvolucionPasado" readonly>{{$paciente->evolucion}}</textarea>
+    <textarea cols="130" rows="8" id="textareaPasado" name="textareaEvolucionPasado"
+              readonly>{{$paciente->evolucion}}</textarea>
     <br><br>
 </div>
 <div class="footer">

@@ -25,7 +25,7 @@
     <h2 class="text-info">AGENDAR CITA</h2>
     <br>
     <p>Paciente: {{$pacientes[0]->nombre}} {{$pacientes[0]->apellido1}}</p>
-    <p>Especialista: Dr. Cepeda</p>
+    <p>Especialista: Marta Ballesteros Hijo</p>
     <p>Categoría: Psicólogo</p>
 
     <br>
@@ -41,18 +41,18 @@
         </thead>
         <tbody>
         @foreach($citas as $cita)
-                    <tr>
-                        <form action="{{route('citaspersonales.modificarCita')}}" method="POST">
-                            @csrf
-                            @method('PATCH')
+            <tr>
+                <form action="{{route('citaspersonales.modificarCita')}}" method="POST">
+                    @csrf
+                    @method('PATCH')
                     <td>{{$cita->fecha}}</td>
                     <td>{{$cita->nom_usuario_especialista}}</td>
-                            <input type="hidden" name="id" value="{{$cita->id}}">
+                    <input type="hidden" name="id" value="{{$cita->id}}">
                     <td>
-                          <button type="submit" class="btn btn-outline-success">Reservar</button>
+                        <button type="submit" class="btn btn-outline-success">Reservar</button>
                     </td>
-                        </form>
-                </tr>
+                </form>
+            </tr>
         @endforeach
         </tbody>
     </table>

@@ -3,8 +3,8 @@
     <link rel="stylesheet" href="{{asset ('../css/app.css')}}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script>
-        $(document).ready(function(){
-            $('.btn-paciente').click(function(e){
+        $(document).ready(function () {
+            $('.btn-paciente').click(function (e) {
                 e.preventDefault();
                 var row = $(this).parents('tr');
                 var id = row.data('id');
@@ -13,11 +13,11 @@
                 var data = form.serialize();
                 row.fadeOut();
 
-                $.post(url, data, function (result){
+                $.post(url, data, function (result) {
                     alert(result);
                 });
             })
-            $('.btn-secretario').click(function(e){
+            $('.btn-secretario').click(function (e) {
                 e.preventDefault();
                 var row = $(this).parents('tr');
                 var id = row.data('id');
@@ -26,11 +26,11 @@
                 var data = form.serialize();
                 row.fadeOut();
 
-                $.post(url, data, function (result){
+                $.post(url, data, function (result) {
                     alert(result);
                 });
             })
-            $('.btn-especialista').click(function(e){
+            $('.btn-especialista').click(function (e) {
                 e.preventDefault();
                 var row = $(this).parents('tr');
                 var id = row.data('id');
@@ -39,7 +39,7 @@
                 var data = form.serialize();
                 row.fadeOut();
 
-                $.post(url, data, function (result){
+                $.post(url, data, function (result) {
                     alert(result);
                 });
             })
@@ -84,21 +84,24 @@
         </thead>
         <tbody>
         @foreach($pacientes as $paciente)
-            <a> <tr data-id="{{$paciente->id}}">
+            <a>
+                <tr data-id="{{$paciente->id}}">
 
                     <td>{{$paciente->nom_usuario}}</td>
                     <td>{{$paciente->nombre}}</td>
                     <td>{{$paciente->apellido1}}</td>
                     <td>{{$paciente->apellido2}}</td>
                     <td>Paciente</td>
-                        <td>
-                            <button type="button" class="btn btn-outline-danger btn-paciente">Eliminar</button>
-                        </td>
-                  </tr></a>
+                    <td>
+                        <button type="button" class="btn btn-outline-danger btn-paciente">Eliminar</button>
+                    </td>
+                </tr>
+            </a>
 
         @endforeach
         @foreach($especialistas as $especialista)
-            <a> <tr data-id="{{$especialista->id}}">
+            <a>
+                <tr data-id="{{$especialista->id}}">
                     <td>{{$especialista->nom_usuario}}</td>
                     <td>{{$especialista->nombre}}</td>
                     <td>{{$especialista->apellido1}}</td>
@@ -107,10 +110,12 @@
                     <td>
                         <button type="submit" class="btn btn-outline-danger btn-especialista">Eliminar</button>
                     </td>
-                    </tr></a>
+                </tr>
+            </a>
         @endforeach
         @foreach($secretarios as $secretario)
-            <a> <tr data-id="{{$secretario->id}}">
+            <a>
+                <tr data-id="{{$secretario->id}}">
 
                     <td>{{$secretario->nom_usuario}}</td>
                     <td>{{$secretario->nombre}}</td>
@@ -120,7 +125,8 @@
                     <td>
                         <button type="submit" class="btn btn-outline-danger btn-secretario">Eliminar</button>
                     </td>
-                    </tr></a>
+                </tr>
+            </a>
         @endforeach
         </tbody>
     </table>
@@ -133,7 +139,7 @@
 </div>
 </body>
 <form action="{{route('pacientes.destroy', ':USER')}}" id="formularioPaciente" method="DELETE">
-@csrf
+    @csrf
     @method('DELETE')
 </form>
 <form action="{{route('especialistas.destroy', ':USER')}}" id="formularioEspecialista" method="DELETE">
