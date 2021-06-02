@@ -24,7 +24,7 @@
     <br><br>
     <h2 class="text-info">AGENDAR CITA</h2>
     <br>
-    <p>Paciente: {{$pacientes[0]->nombre}}</p>
+    <p>Paciente: {{$pacientes[0]->nombre}} {{$pacientes[0]->apellido1}}</p>
     <p>Especialista: Dr. Cepeda</p>
     <p>Categoría: Psicólogo</p>
 

@@ -39,12 +39,12 @@
             <tbody>
             @foreach($pacientes as $paciente)
             <a> <tr>
-                <td>{{$paciente->nombre}}</td>
+                <td>{{$paciente->nombre}} {{$paciente->apellido1}}</td>
                 <td>{{$paciente->dni}}</td>
                     @php
                     $numEsp = random_int(1, 9);
                     @endphp
-                <td>{{$especialistas[$numEsp]->nombre}}</td>
+                <td>{{$especialistas[$numEsp]->nombre}} {{$especialistas[$numEsp]->apellido1}}</td>
                     <td>
                         <a class="btn btn-outline-success" href="{{route('historialPaciente',$paciente->id)}}">Seleccionar</a>
                     </td>

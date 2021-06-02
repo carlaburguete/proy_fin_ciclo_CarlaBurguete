@@ -85,8 +85,14 @@ class PacienteController extends Controller
         return view("vistaespecialista.evolucion",['paciente'=>$paciente]);
     }
 
-    public function nuevoPaciente(){
-        return view("vistasecretaria.nuevopaciente");
+    public function nuevoPaciente(Request $request){
+        $entrada = $request->all();
+        $paciente = new Paciente($request->input());
+        $paciente->save();
+        $citas = Cita::all();
+        $pacientes = Paciente::all();
+        $especialistas = Especialista::all();
+        return view("vistasecretaria.listadogeneral",['citas'=>$citas, 'pacientes'=>$pacientes, 'especialistas'=>$especialistas])->with('status', 'El paciente ha sido creado con éxito');
     }
 
 

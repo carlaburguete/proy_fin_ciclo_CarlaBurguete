@@ -33,7 +33,7 @@
 
 
     <br><br>
-<h2 class="text-info">TRATAMIENTOS PACIENTE: {{$paciente->nombre}}</h2>
+<h2 class="text-info">TRATAMIENTOS PACIENTE: {{$paciente->nombre}} {{$paciente->apellido1}}</h2>
     <br>
 
     <a class="btn btn-outline-info" id="botonEditar" onclick="cambiarAtributo()">

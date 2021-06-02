@@ -97,7 +97,6 @@ class CitaController extends Controller
             'pendiente' => true
         ]);
         $cita->save();
-
         return redirect()->route("citaspersonales.historico");
     }
 

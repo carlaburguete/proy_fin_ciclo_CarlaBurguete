@@ -1,7 +1,7 @@
 <html>
 <head>
     <link rel="stylesheet" href="{{asset ('../css/app.css')}}">
-    <title>Datos personales</title>
+    <title>Alta nuevo paciente</title>
 </head>
 <body>
 <div class="container">
@@ -25,7 +25,7 @@
     <h2 class="text-info">ALTA DE NUEVO PACIENTE</h2>
     <br>
 
-    <form action="" method="POST">
+    <form action="{{route('nuevopaciente')}}" method="POST">
 
         <div class="form-group">
             <label for="nombre">Nombre*</label>

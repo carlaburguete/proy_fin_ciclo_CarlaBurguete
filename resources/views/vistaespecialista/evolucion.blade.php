@@ -33,7 +33,7 @@
     </header>
 
     <br><br>
-<h2 class="text-info">EVOLUCIÓN PACIENTE: {{$paciente->nombre}}</h2>
+<h2 class="text-info">EVOLUCIÓN PACIENTE: {{$paciente->nombre}} {{$paciente->apellido1}}</h2>
     <br>
     <h3 class="text-info">AÑADIR EVOLUCIÓN</h3>
     <a class="btn btn-outline-info" id="botonEditar" onclick="cambiarAtributo()">

@@ -46,7 +46,8 @@ Route::get('citaspaciente/{id}', 'App\Http\Controllers\CitaController@secretario
 Route::patch('citaspacienteborrar', 'App\Http\Controllers\CitaController@eliminarCitaSecretaria')->name('eliminarCitaSecretaria');
 Route::get('datospersonales', 'App\Http\Controllers\PacienteController@datosPersonales');
 Route::get('historicocitas', 'App\Http\Controllers\CitaController@secretarioHistoricoGeneral');
-Route::get('nuevopaciente', 'App\Http\Controllers\PacienteController@nuevopaciente');
+//no va
+Route::post('nuevopaciente', 'App\Http\Controllers\PacienteController@nuevopaciente')->name('nuevopaciente');
 
 //VISTAS HECHAS ADMINISTRADOR
 Route::resource('listausuarios', 'App\Http\Controllers\AdministradorController');
@@ -54,8 +55,8 @@ Route::resource('listausuarios', 'App\Http\Controllers\AdministradorController')
 //Route::resource('altausuario','App\Http\Controllers\AdministradorController@altausuario')->name('get');
 //Route::post('crearusuario', 'App\Http\Controllers\AdministradorController@crearusuario')->name('crearusuario');
 
-
 //RUTA A LOGIN
-Auth::routes();
+Route::post('login', 'App\Http\Controllers\AdministradorController@validaUsuario')->name('validaUsuario');
+//Auth::routes();
 
 

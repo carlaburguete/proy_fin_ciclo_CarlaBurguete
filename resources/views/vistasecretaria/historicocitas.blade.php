@@ -53,9 +53,9 @@
                         @php
                             $numEsp = random_int(1, 9);
                         @endphp
-                        <td>{{$pacientes[$numEsp]->nombre}}</td>
+                        <td>{{$pacientes[$numEsp]->nombre}} {{$pacientes[$numEsp]->apellido1}}</td>
                         <td>{{$cita->fecha}}</td>
-                        <td>{{$especialistas[$numEsp]->nombre}}</td>
+                        <td>{{$especialistas[$numEsp]->nombre}} {{$especialistas[$numEsp]->apellido1}}</td>
                     </tr></a>
             @endforeach
             </tbody>

@@ -23,6 +23,51 @@ class AdministradorController extends Controller
         return view("vistaadministrador.listausuarios",['pacientes'=>$pacientes, 'especialistas'=>$especialistas, 'secretarios'=>$secretarios]);
     }
 
+    public function validaUsuario(Request $request){
+        $entrada = $request->all();
+        $pacientes = Paciente::All();
+        $secretarios = Secretario::All();
+        $especialistas = Especialista::All();
+        $administradores = Administrador::All();
+        foreach($pacientes as $paciente){
+            if ($entrada['nom_usuario'] == $paciente->nom_usuario) {
+                if ($entrada['password'] == $paciente->password) {
+                    redirect()->route('vista_paciente.citaspersonales');
+                }
+            } else {
+                redirect()->route('login')->with('status', 'Error en los campos introducidos');
+            }
+        }
+        foreach($secretarios as $secretario){
+            if ($entrada['nom_usuario'] == $secretario->nom_usuario) {
+                if ($entrada['password'] == $secretario->password) {
+                    redirect()->route('vistasecretaria.listadogeneral');
+                }
+            } else {
+                redirect()->route('login')->with('status', 'Error en los campos introducidos');
+            }
+        }
+        foreach($especialistas as $especialista){
+            if ($entrada['nom_usuario'] == $especialista->nom_usuario) {
+                if ($entrada['password'] == $especialista->password) {
+                    redirect()->route('vistaespecialista.listapacientes');
+                }
+            } else {
+                redirect()->route('login')->with('status', 'Error en los campos introducidos');
+            }
+        }
+        foreach($administradores as $administrador){
+            if ($entrada['nom_usuario'] == $administrador->nom_usuario) {
+                if ($entrada['password'] == $administrador->password) {
+                    redirect()->route('vistaadministrador.listausuarios');
+                }
+            } else {
+                redirect()->route('login')->with('status', 'Error en los campos introducidos');
+            }
+        }
+
+    }
+
     public function altausuario(){
         return view("vistaadministrador.altausuario");
     }

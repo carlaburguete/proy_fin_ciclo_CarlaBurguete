@@ -12,8 +12,9 @@
                 <div class="card-header-tabs text-center text-info">INICIAR SESIÓN</div>
                 <br>
                 <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
+                    <form method="POST" action="{{route('validaUsuario')}}">
                         @csrf
+                        @method('POST')
                         <div class="form-group row">
                             <label for="nom_usuario" class="col-md-4 col-form-label text-md-right">Usuario</label>
 
