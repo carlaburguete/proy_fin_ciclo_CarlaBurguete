@@ -36,8 +36,8 @@ class PacienteFactory extends Factory
             'num_emergencia' => $this->faker->phoneNumber,
             'f_nacimiento' => $this->faker->dateTimeThisCentury,
             'email' => $this->faker->email,
-            'historial' => $this->faker->lastName,
-            'tratamiento' => $this->faker->lastName
+            'historial' => $this,
+            'tratamiento' => $this
             //
         ];
     }

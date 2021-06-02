@@ -14,12 +14,12 @@ class CreateEspecialistasTable extends Migration
     public function up()
     {
         Schema::create('especialistas', function (Blueprint $table) {
+            $table->bigIncrements("id");
             $table->string("nom_usuario");
             $table->string("password");
             $table->string("nombre");
             $table->string("apellido1");
             $table->string("apellido2");
-            $table->string("categoria");
         });
     }
 

@@ -52,7 +52,7 @@ Route::get('nuevopaciente', 'App\Http\Controllers\PacienteController@nuevopacien
 Route::resource('listausuarios', 'App\Http\Controllers\AdministradorController');
 //NO VA
 //Route::resource('altausuario','App\Http\Controllers\AdministradorController@altausuario')->name('get');
-Route::post('crearusuario', 'App\Http\Controllers\AdministradorController@crearusuario')->name('crearusuario');
+//Route::post('crearusuario', 'App\Http\Controllers\AdministradorController@crearusuario')->name('crearusuario');
 
 
 //RUTA A LOGIN

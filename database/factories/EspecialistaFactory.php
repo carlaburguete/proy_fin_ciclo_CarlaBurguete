@@ -26,8 +26,7 @@ class EspecialistaFactory extends Factory
             'password' => $this->faker->password,
             'nombre' => $this->faker->name,
             'apellido1' => $this->faker->lastName,
-            'apellido2' => $this->faker->lastName,
-            'categoria' => $this->faker->lastName
+            'apellido2' => $this->faker->lastName
             //
         ];
     }

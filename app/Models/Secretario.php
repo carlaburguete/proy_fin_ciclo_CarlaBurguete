@@ -8,6 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Secretario extends Model
 {
     use HasFactory;
-    protected $fillable=['nom_usuario', 'password', 'nombre', 'apellido1', 'apellido2'];
+    protected $fillable=['id', 'nom_usuario', 'password', 'nombre', 'apellido1', 'apellido2'];
     public $timestamps = false;
 }
