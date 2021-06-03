@@ -92,7 +92,7 @@ class PacienteController extends Controller
         $citas = Cita::all();
         $pacientes = Paciente::all();
         $especialistas = Especialista::all();
-        return view("vistasecretaria.listadogeneral",['citas'=>$citas, 'pacientes'=>$pacientes, 'especialistas'=>$especialistas])->with('status', 'El paciente ha sido creado con éxito');
+        return view("vistasecretaria.listadogeneral",['citas'=>$citas, 'pacientes'=>$pacientes, 'especialistas'=>$especialistas]);
     }
 
 
@@ -136,7 +136,7 @@ class PacienteController extends Controller
      */
     public function edit(Paciente $paciente)
     {
-        //
+        return view('vistasecretaria.datospersonales', ["paciente"=>$paciente]);
     }
 
     /**
@@ -148,8 +148,10 @@ class PacienteController extends Controller
      */
     public function update(Request $request, Paciente $paciente)
     {
-        //
+        $paciente->fill($request->input())->saveOrFail();
+        return redirect()->route('listadogeneral');
     }
+
 
     /**
      * Remove the specified resource from storage.

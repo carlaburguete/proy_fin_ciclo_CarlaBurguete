@@ -15,7 +15,7 @@
         <h1 class="text-dark text-left font-weight-bold">Gabinete privado - Secretaría</h1>
         <nav class="text-info font-weight-light">
             <ul>
-                <li><a href="/datospersonales">Datos personales</a></li>
+                <li><a href="{{route('pacientes.edit', [$paciente])}}">Datos personales</a></li>
                 <li><a href="/agendarcita">Agendar cita</a></li>
                 <li><a href="/citaspaciente">Histórico de citas</a></li>
             </ul>
@@ -28,46 +28,53 @@
         <i class="fa fa-edit">Editar</i>
     </a><br><br>
 
-    <form action="" method="POST">
-
+    <form action="{{route('pacientes.update', $paciente)}}" method="POST">
+        @csrf
+            @method("PATCH")
         <div class="form-group">
+            <label for="nombre">Nombre de usuario*</label>
+            <input type="text" class="form-check col-10" name="nom_usuario" value="{{$paciente->nom_usuario}}"><br>
+
+            <label for="nombre">Password*</label>
+            <input type="text" class="form-check col-10" name="password" value="{{$paciente->password}}"><br>
+
             <label for="nombre">Nombre*</label>
-            <input type="text" class="form-check col-10" name="nombre" value="{{$pacientes[0]->nombre}}"><br>
+            <input type="text" class="form-check col-10" name="nombre" value="{{$paciente->nombre}}"><br>
 
             <label for="primerapellido">Primer apellido*</label>
-            <input type="text" class="form-check col-10" name="primerapellido" value="{{$pacientes[0]->apellido1}}"><br>
+            <input type="text" class="form-check col-10" name="apellido1" value="{{$paciente->apellido1}}"><br>
 
             <label for="segundoapellido">Segundo apellido</label>
-            <input type="text" class="form-check col-10" name="segundoapellido"
-                   value="{{$pacientes[0]->apellido2}}"><br>
+            <input type="text" class="form-check col-10" name="apellido2"
+                   value="{{$paciente->apellido2}}"><br>
 
             <label for="dni">DNI / NIE *</label>
-            <input type="text" class="form-check col-10" name="dni" value="{{$pacientes[0]->dni}}"><br>
+            <input type="text" class="form-check col-10" name="dni" value="{{$paciente->dni}}"><br>
 
             <label for="tlf">Teléfono*</label>
-            <input type="text" class="form-check col-10" name="tlf" value="{{$pacientes[0]->telefono}}"><br>
+            <input type="text" class="form-check col-10" name="telefono" value="{{$paciente->telefono}}"><br>
 
             <label for="direccion">Dirección*</label>
-            <input type="text" class="form-check col-10" name="direccion" value="{{$pacientes[0]->direccion}}"><br>
+            <input type="text" class="form-check col-10" name="direccion" value="{{$paciente->direccion}}"><br>
 
             <label for="localidad">Localidad*</label>
-            <input type="text" class="form-check col-10" name="localidad" value="{{$pacientes[0]->localidad}}"><br>
+            <input type="text" class="form-check col-10" name="localidad" value="{{$paciente->localidad}}"><br>
 
             <label for="provincia">Provincia*</label>
-            <input type="text" class="form-check col-10" name="provincia" value="{{$pacientes[0]->provincia}}"><br>
+            <input type="text" class="form-check col-10" name="provincia" value="{{$paciente->provincia}}"><br>
 
             <label for="cp">Código postal*</label>
-            <input type="text" class="form-check col-10" name="cp" value="{{$pacientes[0]->cp}}"><br>
+            <input type="text" class="form-check col-10" name="cp" value="{{$paciente->cp}}"><br>
 
             <label for="tlfemergencia">Número de emergencia</label>
-            <input type="text" class="form-check col-10" name="tlfemergencia" value="{{$pacientes[0]->num_emergencia}}"><br>
+            <input type="text" class="form-check col-10" name="num_emergencia" value="{{$paciente->num_emergencia}}"><br>
 
             <label for="email">Correo electrónico*</label>
-            <input type="email" class="form-check col-10" name="email" value="{{$pacientes[0]->email}}"><br>
+            <input type="email" class="form-check col-10" name="email" value="{{$paciente->email}}"><br>
 
             <label for="fechanacimiento">Fecha de nacimiento*</label>
-            <input type="email" class="form-check col-10" name="fechanacimiento"
-                   value="{{$pacientes[0]->f_nacimiento}}"><br>
+            <input type="text" class="form-check col-10" name="f_nacimiento"
+                   value="{{$paciente->f_nacimiento}}"><br>
         </div>
         <button type="submit" class="btn btn-outline-primary">GUARDAR</button>
     </form>

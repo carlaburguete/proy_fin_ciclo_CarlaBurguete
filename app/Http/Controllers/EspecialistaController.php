@@ -17,66 +17,6 @@ class EspecialistaController extends Controller
 
     }
 
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Especialista  $especialista
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Especialista $especialista)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Especialista  $especialista
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Especialista $especialista)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Especialista  $especialista
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Especialista $especialista)
-    {
-        //
-    }
-
     /**
      * Remove the specified resource from storage.
      *

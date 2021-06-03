@@ -26,22 +26,28 @@
     <br>
 
     <form action="{{route('nuevopaciente')}}" method="POST">
-
+        @csrf
         <div class="form-group">
+            <label for="nom_usuario">Nombre de usuario*</label>
+            <input type="text" class="form-check col-10" name="nom_usuario" value=""><br>
+
+            <label for="password">Password*</label>
+            <input type="text" class="form-check col-10" name="password" value=""><br>
+
             <label for="nombre">Nombre*</label>
             <input type="text" class="form-check col-10" name="nombre" value=""><br>
 
             <label for="primerapellido">Primer apellido*</label>
-            <input type="text" class="form-check col-10" name="primerapellido" value=""><br>
+            <input type="text" class="form-check col-10" name="apellido1" value=""><br>
 
-            <label for="segundoapellido">Segundo apellido</label>
-            <input type="text" class="form-check col-10" name="segundoapellido" value=""><br>
+            <label for="segundoapellido">Segundo apellido*</label>
+            <input type="text" class="form-check col-10" name="apellido2" value=""><br>
 
             <label for="dni">DNI / NIE *</label>
             <input type="text" class="form-check col-10" name="dni" value=""><br>
 
             <label for="tlf">Teléfono*</label>
-            <input type="text" class="form-check col-10" name="tlf" value=""><br>
+            <input type="text" class="form-check col-10" name="telefono" value=""><br>
 
             <label for="direccion">Dirección*</label>
             <input type="text" class="form-check col-10" name="direccion" value=""><br>
@@ -56,13 +62,17 @@
             <input type="text" class="form-check col-10" name="cp" value=""><br>
 
             <label for="tlfemergencia">Número de emergencia</label>
-            <input type="text" class="form-check col-10" name="tlfemergencia" value=""><br>
+            <input type="text" class="form-check col-10" name="num_emergencia" value=""><br>
 
             <label for="email">Correo electrónico*</label>
             <input type="email" class="form-check col-10" name="email" value=""><br>
 
             <label for="fechanacimiento">Fecha de nacimiento*</label>
-            <input type="email" class="form-check col-10" name="fechanacimiento" value=""><br>
+            <input type="text" class="form-check col-10" name="f_nacimiento" value=""><br>
+
+            <input type="hidden" class="form-check col-10" name="historial" value="null"><br>
+            <input type="hidden" class="form-check col-10" name="tratamiento" value="null"><br>
+            <input type="hidden" class="form-check col-10" name="evaluacion" value="null"><br>
         </div>
         <button type="submit" class="btn btn-outline-primary">GUARDAR</button>
     </form>

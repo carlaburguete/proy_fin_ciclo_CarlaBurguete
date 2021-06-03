@@ -61,7 +61,7 @@
         <nav class="text-info font-weight-light">
             <ul>
                 <li><a href="/listausuarios">Ver usuarios registrados</a></li>
-                <li><a href="/altausuario">Crear nuevo usuario</a></li>
+                <li><a href="/crearusuario">Crear nuevo usuario</a></li>
             </ul>
         </nav>
     </header>

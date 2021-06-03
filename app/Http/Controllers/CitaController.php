@@ -14,64 +14,64 @@ class CitaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    //funcion para ver las citas personales de un paciente - Vista paciente
     public function index()
     {
         $citas = Cita::All();
         $pacientes = Paciente::All();
-        return view("vista_paciente.citaspersonales",['pacientes'=>$pacientes, 'citas'=>$citas]);
+        return view("vista_paciente.citaspersonales", ['pacientes' => $pacientes, 'citas' => $citas]);
     }
 
-    public function historico(){
+    //funcion para ver el historico personal del paciente que se conecta - Vista paciente
+    public function historico()
+    {
         $citas = Cita::All();
         $citasPendientes = [];
         $contador = 0;
-        foreach ($citas as $citaNueva){
-            if($citaNueva->pendiente){
+        foreach ($citas as $citaNueva) {
+            if ($citaNueva->pendiente) {
                 $citasPendientes[$contador] = $citaNueva;
                 $contador++;
             }
         }
         $pacientes = Paciente::All();
-        return view("vista_paciente.historicopersonal",['pacientes'=>$pacientes, 'citas'=>$citasPendientes]);
+        return view("vista_paciente.historicopersonal", ['pacientes' => $pacientes, 'citas' => $citasPendientes]);
     }
 
-    public function secretarioCitasPaciente($id){
+    //funcion para ver las citas de un paciente seleccionado - Vista secretaria
+    public function secretarioCitasPaciente($id)
+    {
         $paciente = Paciente::find($id);
         $citas = Cita::All();
         $citasPendientes = [];
         $contador = 0;
-        foreach ($citas as $citaNueva){
-            if($citaNueva->pendiente){
+        foreach ($citas as $citaNueva) {
+            if ($citaNueva->pendiente) {
                 $citasPendientes[$contador] = $citaNueva;
                 $contador++;
             }
         }
-        return view("vistasecretaria.citaspaciente",['citas'=>$citasPendientes, 'paciente'=>$paciente]);
+        return view("vistasecretaria.citaspaciente", ['citas' => $citasPendientes, 'paciente' => $paciente]);
     }
 
-    public function secretarioHistoricoGeneral(){
+    //funcion para ver el historico general de citas del gabinete - Vista secretaria
+    public function secretarioHistoricoGeneral()
+    {
         $citas = Cita::All();
         $pacientes = Paciente::All();
         $especialistas = Especialista::All();
-        return view("vistasecretaria.historicocitas",['pacientes'=>$pacientes, 'citas'=>$citas, 'especialistas'=>$especialistas]);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        return view("vistasecretaria.historicocitas", ['pacientes' => $pacientes, 'citas' => $citas, 'especialistas' => $especialistas]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
+
+    //funcion para crear una cita nueva y guardarla en el historico personal de un paciente - Vista paciente
     public static function store(Request $request)
     {
         $entrada = $request->all();
@@ -79,15 +79,18 @@ class CitaController extends Controller
         $cita->save();
         $citas = Cita::all();
         $pacientes = Paciente::all();
-        return view("vista_paciente.historicopersonal",['citas'=>$citas, 'pacientes'=>$pacientes]);
+        return view("vista_paciente.historicopersonal", ['citas' => $citas, 'pacientes' => $pacientes]);
     }
 
-    public function mostrarPaginaAgenda($id){
+    //funcion para agendar una cita para un paciente seleccionado - Vista secretaria
+    public function mostrarPaginaAgenda($id)
+    {
         $paciente = Paciente::find($id);
         $citas = Cita::all();
-        return view("vistasecretaria.agendarcita", ['citas'=>$citas, 'paciente'=>$paciente]);
+        return view("vistasecretaria.agendarcita", ['citas' => $citas, 'paciente' => $paciente]);
     }
 
+    //funcion para modificar una cita y que este pendiente - Vista Paciente
     public function modificarCita(Request $request)
     {
         $entrada = $request->all();
@@ -100,6 +103,7 @@ class CitaController extends Controller
         return redirect()->route("citaspersonales.historico");
     }
 
+    //funcion para reservar una cita - Vista paciente
     public function reservarCita(Request $request)
     {
         $entrada = $request->all();
@@ -113,6 +117,7 @@ class CitaController extends Controller
         return redirect()->route("citaspaciente", $entrada['pacienteElegido']);
     }
 
+    //funcion para eliminar una cita cambiando su valor y volver al historico - Vista paciente
     public function eliminarCita(Request $request)
     {
         $entrada = $request->all();
@@ -126,6 +131,7 @@ class CitaController extends Controller
         return redirect()->route("citaspersonales.historico");
     }
 
+    //funcion para eliminar una cita cambiando su valor y volver al historico - Vista secretaria
     public function eliminarCitaSecretaria(Request $request)
     {
         $entrada = $request->all();
@@ -139,47 +145,4 @@ class CitaController extends Controller
         return redirect()->route("citaspaciente", $entrada['pacienteElegido']);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Cita  $cita
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Cita $cita)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Cita  $cita
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Cita $cita)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Cita  $cita
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Cita $cita)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Cita  $cita
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Cita $cita)
-    {
-    }
 }

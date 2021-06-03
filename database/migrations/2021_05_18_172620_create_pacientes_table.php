@@ -29,9 +29,9 @@ class CreatePacientesTable extends Migration
             $table->string("num_emergencia");
             $table->string("f_nacimiento");
             $table->string("email");
-            $table->string("historial");
-            $table->string("tratamiento");
-            $table->string("evolucion");
+            $table->string("historial")->nullable('true');
+            $table->string("tratamiento")->nullable('true');
+            $table->string("evolucion")->nullable('true');
         });
     }
 

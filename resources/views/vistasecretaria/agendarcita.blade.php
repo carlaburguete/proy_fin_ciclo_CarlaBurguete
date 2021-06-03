@@ -14,7 +14,7 @@
         <h1 class="text-dark text-left font-weight-bold">Gabinete privado - Secretaría</h1>
         <nav class="text-info font-weight-light">
             <ul>
-                <li><a href="/datospersonales">Datos personales</a></li>
+                <li><a href="{{route('pacientes.edit', [$paciente])}}">Datos personales</a></li>
                 <li><a href="/agendarcita">Agendar cita</a></li>
                 <li><a href="/citaspaciente">Histórico de citas</a></li>
             </ul>
