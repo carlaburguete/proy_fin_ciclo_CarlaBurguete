@@ -22,7 +22,8 @@ class AdministradorController extends Controller
         $pacientes = Paciente::All();
         $especialistas = Especialista::All();
         $secretarios = Secretario::All();
-        return view("vistaadministrador.listausuarios", ['pacientes' => $pacientes, 'especialistas' => $especialistas, 'secretarios' => $secretarios]);
+        $administradores = Administrador::All();
+        return view("vistaadministrador.listausuarios", ['pacientes' => $pacientes, 'especialistas' => $especialistas, 'secretarios' => $secretarios, 'administradores' => $administradores]);
     }
 
 
@@ -82,7 +83,7 @@ class AdministradorController extends Controller
                 foreach ($administradores as $administrador) {
 
                     if ($entrada['password'] == $administrador->password) {
-                        return redirect()->route('listausuarios.index');
+                        return redirect()->route('listausuarios.index', $administrador);
                     } else {
                         return view('auth.login');
                     }

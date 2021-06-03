@@ -7,15 +7,6 @@ use Illuminate\Http\Request;
 
 class EspecialistaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-
-    public function eliminarEspecialista(){
-
-    }
 
     /**
      * Remove the specified resource from storage.

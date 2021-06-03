@@ -51,7 +51,7 @@
 <div class="container">
     <header>
         <div class="iconosheader">
-            <i class="fa fa-user text-right">usuarioAdministrador</i>
+            <i class="fa fa-user text-right">{{$administradores[0]->nom_usuario}}</i>
             <a class="btn btn-dark" href="/login">
                 <i class="fa fa-lock text-right">Cerrar sesión</i>
             </a><br>
@@ -69,7 +69,6 @@
     <h2 class="text-info">USUARIOS REGISTRADOS</h2>
     <br><br>
 
-    <!-- <h5 class="text-uppercase alert-warning">Mensaje</h5> -->
 
     <table class="table table-responsive table-striped">
         <thead class="text-light">
