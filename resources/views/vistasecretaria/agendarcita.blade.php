@@ -15,8 +15,8 @@
         <nav class="text-info font-weight-light">
             <ul>
                 <li><a href="{{route('pacientes.edit', [$paciente])}}">Datos personales</a></li>
-                <li><a href="/agendarcita">Agendar cita</a></li>
-                <li><a href="/citaspaciente">Histórico de citas</a></li>
+                <li><a href="{{route('agendarcita', [$paciente])}}">Agendar cita</a></li>
+                <li><a href="{{route('citaspaciente', [$paciente])}}">Histórico de citas</a></li>
             </ul>
         </nav>
     </header>
@@ -25,7 +25,7 @@
     <h2 class="text-info">AGENDAR CITA</h2>
     <br>
     <p>Paciente: {{$paciente->nombre}} {{$paciente->apellido1}}</p>
-    <p>Especialista: Dr. Cepeda</p>
+    <p>Especialista: Marta Ballesteros Hijo</p>
     <p>Categoría: Psicólogo</p>
 
     <br>

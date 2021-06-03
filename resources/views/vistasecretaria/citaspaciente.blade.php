@@ -15,9 +15,9 @@
         <h1 class="text-dark text-left font-weight-bold">Gabinete privado - Secretaría</h1>
         <nav class="text-info font-weight-light">
             <ul>
-                <li><a href="/datospersonales">Datos personales</a></li>
-                <li><a href="/agendarcita">Agendar cita</a></li>
-                <li><a href="/citaspaciente">Histórico de citas</a></li>
+                <li><a href="{{route('pacientes.edit', [$paciente])}}">Datos personales</a></li>
+                <li><a href="{{route('agendarcita', [$paciente])}}">Agendar cita</a></li>
+                <li><a href="{{route('citaspaciente', [$paciente])}}">Histórico de citas</a></li>
             </ul>
         </nav>
     </header>
@@ -26,7 +26,7 @@
 
     <br>
     <p>Paciente: {{$paciente->nombre}} {{$paciente->apellido1}}</p>
-    <p>Especialista: Dr. Cepeda</p>
+    <p>Especialista: Marta Ballesteros Hijo</p>
     <p>Categoría: Psicólogo</p>
 
     <br>
@@ -76,27 +76,27 @@
         <tr>
             <td>11/04/2021</td>
             <td>11:00-12:00</td>
-            <td>Dr. Cepeda</td>
+            <td>Marta Ballesteros Hijo</td>
         </tr>
         <tr>
             <td>16/03/2021</td>
             <td>14:00-15:00</td>
-            <td>Dr. Cepeda</td>
+            <td>Marta Ballesteros Hijo</td>
         </tr>
         <tr>
             <td>01/03/2021</td>
             <td>20:00-21:00</td>
-            <td>Dr. Cepeda</td>
+            <td>Marta Ballesteros Hijo</td>
         </tr>
         <tr>
             <td>15/02/2021</td>
             <td>18:30-19:30</td>
-            <td>Dr. Cepeda</td>
+            <td>Marta Ballesteros Hijo</td>
         </tr>
         <tr>
             <td>02/01/2021</td>
             <td>17:00-18:00</td>
-            <td>Dr. Cepeda</td>
+            <td>Marta Ballesteros Hijo</td>
         </tr>
         </tbody>
     </table>

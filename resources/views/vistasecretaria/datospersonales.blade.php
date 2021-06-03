@@ -16,17 +16,15 @@
         <nav class="text-info font-weight-light">
             <ul>
                 <li><a href="{{route('pacientes.edit', [$paciente])}}">Datos personales</a></li>
-                <li><a href="/agendarcita">Agendar cita</a></li>
-                <li><a href="/citaspaciente">Histórico de citas</a></li>
+                <li><a href="{{route('agendarcita', [$paciente])}}">Agendar cita</a></li>
+                <li><a href="{{route('citaspaciente', [$paciente])}}">Histórico de citas</a></li>
             </ul>
         </nav>
     </header>
     <br><br>
     <h2 class="text-info">DATOS PERSONALES</h2>
     <br>
-    <a class="btn btn-outline-info">
-        <i class="fa fa-edit">Editar</i>
-    </a><br><br>
+
 
     <form action="{{route('pacientes.update', $paciente)}}" method="POST">
         @csrf

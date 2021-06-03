@@ -13,7 +13,7 @@
             </a><br>
 
         </div>
-        <h1 class="text-dark text-left font-weight-bold">Gabinete privado - Carla Burguete</h1>
+        <h1 class="text-dark text-left font-weight-bold">Gabinete privado - Paciente</h1>
         <nav class="text-info font-weight-light">
             <ul>
                 <li><a href="/citaspersonales">Agendar cita</a></li>
